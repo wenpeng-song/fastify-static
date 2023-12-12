@@ -362,6 +362,22 @@ async function fastifyStatic (fastify, opts) {
           )
         }
 
+        // spa option to send 'index.html' when file not found
+        if (opts.spa) {
+          const indexPathname = findIndexFile('', options.root, options.index)
+          if (indexPathname) {
+            return pumpSendToReply(
+              request,
+              reply,
+              '/',
+              rootPath,
+              undefined,
+              undefined,
+              checkedEncodings
+            )
+          }
+        }
+
         return reply.callNotFound()
       }
 
