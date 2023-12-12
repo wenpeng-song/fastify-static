@@ -86,6 +86,7 @@ declare namespace fastifyStatic {
     setHeaders?: (...args: any[]) => void;
     redirect?: boolean;
     wildcard?: boolean;
+    spa?: boolean;
     list?: boolean | ListOptionsJsonFormat | ListOptionsHtmlFormat;
     allowedPath?: (pathName: string, root: string, request: FastifyRequest) => boolean;
     /**
